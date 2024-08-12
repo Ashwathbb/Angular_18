@@ -1,0 +1,28 @@
+
+<div class=" background-container container">
+  <div class="row">
+     <div class="col-12 text-center p-2">
+        <h4><strong>All Products</strong></h4>
+     </div>
+  </div>
+  <div class="row">
+      <!-- Loop through the products and display each one -->
+      <div *ngFor="let product of productList" class="col-md-4 mb-4">
+        <div class="card">
+               <!-- Use a static path for the images -->
+               <img [src]="'assets/images/' + product.productImageUrl" class="card-img-top" alt="{{ product.name }}">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.productShortName }}</p>
+            <p class="card-text">{{ product.productDescription }}</p>
+            <p class="card-text"><strong>Price:</strong> {{ product.price | currency }}</p>
+            <p class="card-text"><strong>Category:</strong> {{ product.categoryName }}</p>
+            <p class="card-text"><strong>SKU:</strong> {{ product.productSku }}</p>
+            <p class="card-text"><strong>Created:</strong> {{ product.createdDate | date }}</p>
+            <p class="card-text"><strong>Delivery Time:</strong> {{ product.deliveryTimeSpan }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

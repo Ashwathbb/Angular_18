@@ -1,0 +1,74 @@
+
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Sign-up</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-4">
+                      <label for="">Name</label>
+                      <input type="text" [(ngModel)]="userRegister.Name" class="form-control">
+                  </div>
+                  <div class="col-4">
+                      <label for="">Mobile No</label>
+                      <input type="text" [(ngModel)]="userRegister.MobileNo" class="form-control">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-4">
+                      <label for="">Password</label>
+                      <input type="text" [(ngModel)]="userRegister.Password" class="form-control">
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" (click)="onRegister()">Sign Up</button>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+<div class="modal" id="loginModel">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title">Login</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-4">
+                      <label for="">User Name</label>
+                      <input type="text" [(ngModel)]="loginObj.UserName" class="form-control">
+                  </div>
+                  <div class="col-4">
+                      <label for=""> Password</label>
+                      <input type="text" [(ngModel)]="loginObj.UserPassword" class="form-control">
+                  </div>
+              </div>
+
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" (click)="onLogin()">Login</button>
+          </div>
+
+      </div>
+  </div>
+
+
+</div>
+
