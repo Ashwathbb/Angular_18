@@ -76,14 +76,14 @@ a:hover {
     color: #81c408 !important;
 }
 .px-3 {
-    padding-right: 1rem !important;
+    padding-right: 1rem !important; 
     padding-left: 1rem !important;
 }
 .border-secondary {
     border-color: #ffb524 !important;
 }
 .nav-yellow {
-    background-color: #81c408  !important;
+    background-color:#4CAF50 !important;
 }
 .menuOnLeft { 
     background-color: #f9f9f9;

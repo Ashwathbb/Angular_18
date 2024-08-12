@@ -6,6 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './Pages/login/login.component';
 import { ProductListComponent } from './Pages/product-list/product-list.component';
 import { CommonModule } from '@angular/common';
+import { CheckoutComponent } from './Pages/checkout/checkout.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { ContactUsComponent } from './Pages/contact-us/contact-us.component';
+import { RegisterComponent } from './Pages/register/register.component';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +21,9 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     CommonModule, // Add CommonModule here
     LoginComponent,
+    HomeComponent,
+    ContactUsComponent,
+    RegisterComponent,
     ProductListComponent,FormsModule,ReactiveFormsModule
   ],
   templateUrl: './app.component.html',

@@ -73,22 +73,22 @@
     background-color: #0056b3;
   }
   
-  .register-link {
+  .login-link, .register-link {
     text-align: center;
     margin-top: 15px;
   }
   
-  .register-link p {
+  .login-link p, .register-link p {
     margin-bottom: 5px;
   }
   
-  .register-link a {
+  .login-link a, .register-link a {
     color: #007bff;
     text-decoration: none;
     font-weight: bold;
   }
   
-  .register-link a:hover {
+  .login-link a:hover, .register-link a:hover {
     text-decoration: underline;
   }
   

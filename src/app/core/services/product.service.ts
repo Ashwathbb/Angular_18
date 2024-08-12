@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, catchError, throwError } from 'rxjs';
 import { APIResponseDto, AuthResponseDto, IProduct, LoginDto } from '../model/Model';
@@ -12,22 +12,13 @@ export class ProductService {
 
   apiUrl: string = 'https://localhost:7088/api/Products/GetAllProducts';
   loginUrl:string='https://localhost:7088/api/Auth/login';
+  registerUrl:string='https://localhost:7088/api/Auth/register'
   onCartUpdated$: Subject<boolean> = new Subject<boolean>();
 
 //creating http client object by providing in ctor this is dependenci injection
 
   constructor(private http: HttpClient) { }
-/*
-    get method return observable it may be <any>type so we have json format so we need to use interface (json to ts)
 
-    // Assuming APIResponseDto has a property `Data` which is an array
-    
-getProducts(): Observable<APIResponseModel> {
-      return this.http.get<APIResponseModel>('your-api-url').pipe(
-      map(response => response.Data || [])
-    );
-  }
-*/
 getAllProducts(): Observable<APIResponseDto> {
   return this.http.get<APIResponseDto>(this.apiUrl);
 }
@@ -45,13 +36,7 @@ getAllProducts(): Observable<APIResponseDto> {
     return this.http.get<APIResponseDto>(`${this.apiUrl}GetAllProductsByCategoryId?id=${categoryId}`);
   } 
  
-  onRegister (obj: any): Observable<APIResponseDto>{
-    return this.http.post<APIResponseDto>(`${this.apiUrl}RegisterCustomer`, obj);
-  } 
-  onLogin(loginDto: LoginDto): Observable<any> {
-    return this.http.post<any>(this.loginUrl, loginDto);
-  }
-  onAddToCart (obj: any): Observable<APIResponseDto>{
+  AddToCart (obj: any): Observable<APIResponseDto>{
     return this.http.post<APIResponseDto>(`${this.apiUrl}AddToCart`, obj);
   } 
 
@@ -62,4 +47,30 @@ getAllProducts(): Observable<APIResponseDto> {
   removeProduct (cartId: number): Observable<APIResponseDto>{
     return this.http.get<APIResponseDto>(`${this.apiUrl}DeleteProductFromCartById?id=${cartId}`);
   }
+  /*888888888888888888888888*/
+  register(userName: string, emailId: string, phoneNumber: string, password: string, role: string): Observable<any> {
+    return this.http.post<any>(this.registerUrl, { userName, emailId, phoneNumber, password, role });
+  }
+
+
+  login(UserName: string, Password: string): Observable<{ success: boolean, token?: string }> {
+    return this.http.post<{ success: boolean, token?: string }>(this.loginUrl, { UserName, Password });
+  }
+
+    saveToken(token: string): void {
+      localStorage.setItem('authToken', token);
+    }
+
+    getToken(): string | null {
+      return localStorage.getItem('authToken');
+    }
+
+    isAuthenticated(): boolean {
+      return !!this.getToken();
+    }
+
+    logout(): void {
+      localStorage.removeItem('authToken');
+    }
+
 }

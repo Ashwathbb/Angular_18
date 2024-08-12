@@ -14,7 +14,7 @@
 
 /* Ensure the card image covers the full area */
 .card-img-top {
-  height: 180px;
+  height: 380px;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 10px;
@@ -24,7 +24,7 @@
 /* Styling for card body content */
 .card-body {
   padding: 15px;
-  background-color: #fff;
+  background-color: #e6eff0;
   border-radius: 0 0 10px 10px;
 }
 
